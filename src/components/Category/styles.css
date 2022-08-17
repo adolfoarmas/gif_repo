@@ -1,0 +1,16 @@
+.categoryLink {
+    padding: 5px;
+    text-decoration: none;
+    color:black;
+}
+
+.categoryLink:hover {
+    font-size: 100.5%;
+    text-decoration: none;
+    color:blueviolet;
+}
+
+.categoryLink:active {
+    text-decoration: none;
+    color:yellow;
+}

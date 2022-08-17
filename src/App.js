@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'App.css';
+import { Link, Route } from 'wouter'
+import Home from 'pages/Home/indejx';
+import SearchResults from 'pages/SearchResults';
+import Detail from 'pages/Detail';
+import StaticContext from 'context/StaticContext';
+import { GifContextProvider } from 'context/GifsContext';
 
 function App() {
+
   return (
+    <StaticContext.Provider value= {{test: 'test text', test_nro: 323201 }}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+        <Link to="/">
+          <img className="App-logo" alt="app logo" src="./logo.png" />
+        </Link>
+        <GifContextProvider> {/*all childrens have access to this context*/}
+          <Route path="/" component={Home} />
+          <Route path="/search/:keyword" component={SearchResults} />
+          <Route path="/gif/:id" component={Detail} />
+        </GifContextProvider>
+      </section>
     </div>
+    </StaticContext.Provider>
   );
 }
 
