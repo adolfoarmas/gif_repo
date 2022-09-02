@@ -13,11 +13,11 @@ function App() {
     <StaticContext.Provider value= {{test: 'test text', test_nro: 323201 }}>
     <div className="App">
       <section className="App-content">
-        <Link to="/">
+        <Link to="/gif_repo/">
           <img className="App-logo" alt="app logo" src="./logo.png" />
         </Link>
         <GifContextProvider> {/*all childrens have access to this context*/}
-          <Route path="/" component={Home} />
+          <Route path="/gif_repo/" component={Home} />
           <Route path="/search/:keyword" component={SearchResults} />
           <Route path="/gif/:id" component={Detail} />
         </GifContextProvider>
